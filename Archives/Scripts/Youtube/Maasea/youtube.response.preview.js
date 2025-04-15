@@ -3137,7 +3137,7 @@ ${c[0][g][0]}`;
             delete this.message?.playbackTracking?.pageadViewthroughconversion,
     
             // // Player ability changes commented out
-            // this.addPlayAbility(),
+            this.addPlayAbility(),
             // // Caption modification commented out
             // // this.addTranslateCaption(),
     
