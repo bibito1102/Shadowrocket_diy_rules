@@ -2948,14 +2948,18 @@
         : !1;
     }
     isShorts(e) {
-      let n = !1;
-      return (
-        this.iterate(e, "eml", (r, s) => {
-          (n = /shorts(?!_pivot_item)/.test(r.eml)), (s.length = 0);
-        }),
-        n
-      );
-    }
+    // Simply return false to prevent anything from being flagged as Shorts by this function
+        return false;
+
+    // --- The original code below is now effectively disabled ---
+    // let n = !1;
+    // return (
+    //     this.iterate(e, "eml", (r, s) => {
+    //         (n = /shorts(?!_pivot_item)/.test(r.eml)), (s.length = 0);
+    //     }),
+    //     n
+    // );
+}
   };
   function lr(t) {
     let r = ".",
