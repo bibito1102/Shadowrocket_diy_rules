@@ -3130,21 +3130,16 @@ ${c[0][g][0]}`;
       }
       pure() {
         return (
-            // Uncommented:
-            this.message.adPlacements?.length &&
-                (this.message.adPlacements.length = 0),
-            this.message.adSlots?.length && (this.message.adSlots.length = 0),
-            delete this.message?.playbackTracking?.pageadViewthroughconversion,
-    
-            // // Player ability changes commented out
-            this.addPlayAbility(),
-            // // Caption modification commented out
-            // // this.addTranslateCaption(),
-    
-            (this.needProcess = !0),
-            this
+          this.message.adPlacements?.length &&
+            (this.message.adPlacements.length = 0),
+          this.message.adSlots?.length && (this.message.adSlots.length = 0),
+          delete this.message?.playbackTracking?.pageadViewthroughconversion,
+          this.addPlayAbility(),
+          this.addTranslateCaption(),
+          (this.needProcess = !0),
+          this
         );
-    }
+      }
       addPlayAbility() {
         let e = this.message?.playabilityStatus?.miniPlayer?.miniPlayerRender;
         typeof e == "object" && (e.active = !0),
@@ -3171,7 +3166,7 @@ ${c[0][g][0]}`;
               if (c !== 2) {
                 let f = new Ge({
                   baseUrl: s[d].baseUrl + `&tlang=${e}`,
-                  name: { runs: [{ text: `(${e})` }] },
+                  name: { runs: [{ text: `@Enhance (${e})` }] },
                   vssId: `.${e}`,
                   languageCode: e,
                 });
