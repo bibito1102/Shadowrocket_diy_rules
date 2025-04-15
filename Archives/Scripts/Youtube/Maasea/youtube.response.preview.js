@@ -3149,7 +3149,60 @@ ${c[0][g][0]}`;
             }));
       }
       addTranslateCaption() {
-        return;
+        let e = null;
+        e !== "off" &&
+          this.iterate(this.message, "captionTracks", (n, r) => {
+            let s = n.captionTracks,
+              o = n.audioTracks;
+            if (Array.isArray(s)) {
+              let a = { [e]: 2, en: 1 },
+                c = -1,
+                d = 0;
+              for (let f = 0; f < s.length; f++) {
+                let l = s[f],
+                  g = a[l.languageCode];
+                g && g > c && ((c = g), (d = f)), (l.isTranslatable = !0);
+              }
+              if (c !== 2) {
+                let f = new Ge({
+                  baseUrl: s[d].baseUrl + `&tlang=${e}`,
+                  name: { runs: [{ text: `@Enhance (${e})` }] },
+                  vssId: `.${e}`,
+                  languageCode: e,
+                });
+                s.push(f);
+              }
+              if (Array.isArray(o)) {
+                let f = c === 2 ? d : s.length - 1;
+                for (let l of o)
+                  l.captionTrackIndices?.includes(f) ||
+                    l.captionTrackIndices.push(f),
+                    (l.defaultCaptionTrackIndex = f),
+                    (l.captionsInitialState = 3);
+              }
+            }
+            let i = {
+              de: "Deutsch",
+              ru: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439",
+              fr: "Fran\xE7ais",
+              fil: "Filipino",
+              ko: "\uD55C\uAD6D\uC5B4",
+              ja: "\u65E5\u672C\u8A9E",
+              en: "English",
+              vi: "Ti\u1EBFng Vi\u1EC7t",
+              "zh-Hant": "\u4E2D\u6587\uFF08\u7E41\u9AD4\uFF09",
+              "zh-Hans": "\u4E2D\u6587\uFF08\u7B80\u4F53\uFF09",
+              und: "@VirgilClyne",
+            };
+            (n.translationLanguages = Object.entries(i).map(
+              ([a, c]) =>
+                new Ye({
+                  languageCode: a,
+                  languageName: { runs: [{ text: c }] },
+                }),
+            )),
+              (r.length = 0);
+          });
       }
     },
     Ie = class extends K {
