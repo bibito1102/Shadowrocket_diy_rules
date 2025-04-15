@@ -3134,6 +3134,7 @@ ${c[0][g][0]}`;
             (this.message.adPlacements.length = 0),
           this.message.adSlots?.length && (this.message.adSlots.length = 0),
           delete this.message?.playbackTracking?.pageadViewthroughconversion,
+          delete this.message.captions,
           this.addPlayAbility(),
           //this.addTranslateCaption(),
           (this.needProcess = !0),
