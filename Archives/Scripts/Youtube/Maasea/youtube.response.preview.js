@@ -3166,7 +3166,6 @@ ${c[0][g][0]}`;
               if (c !== 2) {
                 let f = new Ge({
                   baseUrl: s[d].baseUrl + `&tlang=${e}`,
-                  name: { runs: [{ text: `@Enhance (${e})` }] },
                   vssId: `.${e}`,
                   languageCode: e,
                 });
