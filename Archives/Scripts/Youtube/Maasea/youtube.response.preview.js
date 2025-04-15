@@ -3150,7 +3150,7 @@ ${c[0][g][0]}`;
       }
       addTranslateCaption() {
         let e = null;
-        e !== "off" &&
+        e == "off" &&
           this.iterate(this.message, "captionTracks", (n, r) => {
             let s = n.captionTracks,
               o = n.audioTracks;
@@ -3166,7 +3166,7 @@ ${c[0][g][0]}`;
               if (c !== 2) {
                 let f = new Ge({
                   baseUrl: s[d].baseUrl + `&tlang=${e}`,
-                  name: { runs: [{ text: `@Enhance (${e})` }] },
+                  name: { runs: [{ text: '' }] },
                   vssId: `.${e}`,
                   languageCode: e,
                 });
