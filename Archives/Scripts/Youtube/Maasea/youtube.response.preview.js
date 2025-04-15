@@ -3130,21 +3130,19 @@ ${c[0][g][0]}`;
       }
       pure() {
         return (
-            // // Comment out ad removal lines:
-            // this.message.adPlacements?.length &&
-            //     (this.message.adPlacements.length = 0),
-            // this.message.adSlots?.length && (this.message.adSlots.length = 0),
-            // delete this.message?.playbackTracking?.pageadViewthroughconversion,
+            // Uncommented:
+            this.message.adPlacements?.length &&
+                (this.message.adPlacements.length = 0),
+            this.message.adSlots?.length && (this.message.adSlots.length = 0),
+            delete this.message?.playbackTracking?.pageadViewthroughconversion,
     
-            // // Comment out player ability changes:
+            // // Player ability changes commented out
             // this.addPlayAbility(),
-    
-            // // Keep caption modification commented out:
+            // // Caption modification commented out
             // // this.addTranslateCaption(),
     
-            // ESSENTIAL: Keep these lines active
-            (this.needProcess = !0), // Mark that *some* processing happened (even if none did)
-            this // Return the (potentially unmodified) message object
+            (this.needProcess = !0),
+            this
         );
     }
       addPlayAbility() {
